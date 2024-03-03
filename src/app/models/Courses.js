@@ -5,7 +5,7 @@ const ObjectId = Schema.ObjectId;
 
 const Course = new Schema({
   author: ObjectId,
-  title: { type: String, default: "This is an example title" },
+  name: { type: String, default: "This is an example title" },
   description: { type: String, default: "This is an example description" },
   thumbnail: {
     type: String,

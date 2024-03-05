@@ -1,15 +1,19 @@
 const express = require("express");
 const morgan = require("morgan");
 const { engine } = require("express-handlebars");
+const methodOverride = require("method-override");
 const path = require("path");
 const route = require("./routes");
 // Import database
 const db = require("./config/db");
 // Connect to database
 db.connect();
-const port = 3003;
+// Port
+const port = 3000;
 // Init app
 const app = express();
+// Override HTTP Methods
+app.use(methodOverride("_method"));
 // Make static folder
 app.use(express.static(path.join(__dirname, "public")));
 // Connect middleware
